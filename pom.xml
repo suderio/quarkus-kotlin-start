@@ -7,6 +7,8 @@
   <version>1.0.0-SNAPSHOT</version>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
+    <kotlin.version>1.5.0</kotlin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
@@ -17,8 +19,6 @@
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.version>1.13.4.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-    <kotlin.version>1.4.32</kotlin.version>
-    <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -53,6 +53,30 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-kotlin</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-h2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-agroal</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-health</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-metrics</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm-panache-kotlin</artifactId>
     </dependency>
   </dependencies>
   <build>
@@ -92,8 +116,8 @@
         </configuration>
       </plugin>
       <plugin>
-        <artifactId>kotlin-maven-plugin</artifactId>
         <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-maven-plugin</artifactId>
         <version>${kotlin.version}</version>
         <executions>
           <execution>
@@ -109,18 +133,6 @@
             </goals>
           </execution>
         </executions>
-        <configuration>
-          <compilerPlugins>
-            <plugin>all-open</plugin>
-          </compilerPlugins>
-
-          <pluginOptions>
-            <!-- Each annotation is placed on its own line -->
-            <option>all-open:annotation=javax.ws.rs.Path</option>
-            <option>all-open:annotation=javax.enterprise.context.ApplicationScoped</option>
-          </pluginOptions>
-        </configuration>
-
         <dependencies>
           <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -128,6 +140,16 @@
             <version>${kotlin.version}</version>
           </dependency>
         </dependencies>
+        <configuration>
+          <compilerPlugins>
+            <plugin>all-open</plugin>
+          </compilerPlugins>
+          <pluginOptions>
+            <option>all-open:annotation=javax.ws.rs.Path</option>
+            <option>all-open:annotation=javax.enterprise.context.ApplicationScoped</option>
+            <option>all-open:annotation=javax.persistence.Entity</option>
+          </pluginOptions>
+        </configuration>
       </plugin>
     </plugins>
   </build>

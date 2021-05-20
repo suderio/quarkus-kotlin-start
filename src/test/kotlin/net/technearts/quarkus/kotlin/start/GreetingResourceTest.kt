@@ -10,9 +10,14 @@ open class GreetingResourceTest {
     @Test
     fun testHelloEndpoint() {
         RestAssured.given()
-            .`when`()["/hello"]
+            .`when`()["/person/greeting/Chuck"]
             .then()
             .statusCode(200)
-            .body(CoreMatchers.`is`("Hello"))
+            .body(CoreMatchers.`is`("Happy Birthday Chuck"))
+    }
+
+    @Test
+    fun testPerson() {
+
     }
 }
