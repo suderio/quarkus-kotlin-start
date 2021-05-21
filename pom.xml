@@ -5,6 +5,36 @@
   <groupId>net.technearts</groupId>
   <artifactId>quarkus-kotlin-start</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <name>quarkus-kotlin-start</name>
+  <description>Um projeto completo de serviço rest utilizando quarkus e kotlin</description>
+  <url>https://suderio.github.io/quarkus-kotlin-start</url>
+  <organization>
+    <name>Technearts</name>
+    <url>https://www.technearts.net</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://raw.githubusercontent.com/suderio/quarkus-kotlin-start/master/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>suderio</id>
+      <email>paulo.suderio@gmail.com</email>
+      <name>Paulo Suderio</name>
+    </developer>
+  </developers>
+  <scm>
+    <url>https://github.com/suderio/quarkus-kotlin-start</url>
+    <connection>scm:git:http://github.com/suderio/quarkus-kotlin-start.git</connection>
+    <developerConnection>scm:git:https://github.com/suderio/quarkus-kotlin-start.git</developerConnection>
+  </scm>
+  <issueManagement>
+    <url>https://github.com/suderio/quarkus-kotlin-start/issues</url>
+    <system>github</system>
+  </issueManagement>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
