@@ -29,7 +29,7 @@ Se quiser construir um _über-jar_, execute:
 
 A aplicação pode ser executada com `java -jar target/quarkus-app/quarkus-run.jar`.
 
-## Creating a native executable
+## Criando um executável nativo
 
 Você pode criar um executável nativo com: 
 ```shell script

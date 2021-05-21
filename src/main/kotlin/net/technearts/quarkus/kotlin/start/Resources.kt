@@ -8,7 +8,7 @@ import javax.ws.rs.Path
 import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 
-@Path("/person")
+@Path("/greeting")
 class GreetingResource {
     @Inject
     @field: Default
@@ -16,14 +16,24 @@ class GreetingResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    @Path("/greeting/{name}")
+    @Path("/{name}")
     fun greeting(@PathParam("name") name: String): String {
         return service.greeting(name)
     }
 
+}
+
+@Path("/person")
+class PersonResource {
+    @Inject
+    @field: Default
+    lateinit var service: PersonRepository
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    fun hello(): String {
-        return ""
+    @Path("/{name}")
+    fun greeting(@PathParam("name") name: String): String {
+        return service.findByName(name)?.toString() ?: ""
     }
+
 }

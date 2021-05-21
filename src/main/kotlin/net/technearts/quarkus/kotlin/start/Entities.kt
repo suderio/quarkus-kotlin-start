@@ -6,7 +6,6 @@ import javax.persistence.*
 @Entity
 class Person {
     @Id
-    @GeneratedValue
     var id: Long? = null
     lateinit var name: String
     lateinit var birth: LocalDate
